@@ -8,12 +8,12 @@ const environment = {
     debug: {
         serverURL: `http://localhost:${PORT}/`,
         dbString: 'mongodb://mongo:27017/serviceB?retryWrites=true&w=majority',
-        rabbitmqString: 'amqp://rabbitmq:15672'
+        rabbitmqString: 'amqp://guest:guest@rabbitmq'
     },
     production: {
         serverURL: `http://localhost:${PORT}/`,
         dbString: 'mongodb://mongo:27017/serviceB?retryWrites=true&w=majority',
-        rabbitmqString: 'amqp://rabbitmq:15672'
+        rabbitmqString: 'amqp://guest:guest@rabbitmq'
     }
 }
 

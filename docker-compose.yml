@@ -28,6 +28,8 @@ services:
         interval: 30s
         timeout: 10s
         retries: 5
+    networks:
+      - rabbitmq_go_net
 
   ms-qql-example:
     build: ./Services/serviceA
@@ -38,6 +40,8 @@ services:
       - rabbitmq
     environment:
       - NODE_ENV=debug
+    networks:
+      - rabbitmq_go_net
 
   ms-qql2-example:
       build: ./Services/serviceB
@@ -48,6 +52,8 @@ services:
         - rabbitmq
       environment:
         - NODE_ENV=debug      
+      networks:
+        - rabbitmq_go_net
 
 volumes:
   mongodb:
