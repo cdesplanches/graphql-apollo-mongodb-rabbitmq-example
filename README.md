@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to graphql-apollo-mongodb-example 👋</h1>
+<h1 align="center">Welcome to graphql-apollo-mongodb-rabbitmq-example 👋</h1>
 <p>
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
@@ -8,11 +8,7 @@
   </a>
 </p>
 
-> This is a simple example of a graphQL microservice, using Apollo Server and MongoDB
-
-### 🏠 [Homepage](https://github.com/cdesplanches/graphql-apollo-mongodb-example)
-
-### ✨ [Demo](https://github.com/cdesplanches/graphql-apollo-mongodb-example)
+> This is a simple example of 2 microservice that use a pub/sub rabbitmq queue to exchange data between them. It also use graphQL and Apollo Server.
 
 ## Install
 
