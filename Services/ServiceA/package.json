@@ -1,0 +1,24 @@
+{
+  "name": "service_a",
+  "version": "1.0.0",
+  "description": "This is a simple Javascript microservice that use GraphQL to communicate with.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Node",
+    "GraphQL",
+    "Apollo-server",
+    "Javascript"
+  ],
+  "author": "Christophe Desplanches",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/subgraph": "^0.1.5",
+    "amqplib": "^0.8.0",
+    "apollo-server": "^3.6.1",
+    "mongoose": "^6.1.6"
+  }
+}

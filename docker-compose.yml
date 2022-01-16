@@ -1,0 +1,57 @@
+version: '3.9'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - rabbitmq_go_net
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:27017"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  ms-qql-example:
+    build: ./Services/serviceA
+    ports: 
+      - "5000:5000"
+    depends_on:
+      - mongo
+      - rabbitmq
+    environment:
+      - NODE_ENV=debug
+
+  ms-qql2-example:
+      build: ./Services/serviceB
+      ports: 
+        - "5001:5001"
+      depends_on:
+        - mongo
+        - rabbitmq
+      environment:
+        - NODE_ENV=debug      
+
+volumes:
+  mongodb:
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
